@@ -1,0 +1,21 @@
+- context = "__no_context__"
+
+include mixins
+include _mixins_generated
+
+doctype html
+html
+  head
+    block title
+      title #{title || APP_NAME}
+    block meta
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    block scripts
+      script(src='/js/jquery-3.7.1.js')
+      script(src='/js/sweetalert2-11.js')
+      script(src='/js/pigment.js')
+    block styles
+      +stylesheet('/css/pigment.css')
+    block head
+  body
+    block body

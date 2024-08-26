@@ -1,0 +1,14 @@
+mixin footer_item(name, url)
+  .footer__list__item(data-href=url target="_blank")
+    img.footer__list__item__image(src=`/images/libraries/${name.toLowerCase()}.png`)
+    .footer__list__item__name= name
+
+.footer
+  .footer__title Documentation
+  .footer__list
+    +footer_item("Pigment", "https://pigment.inkbyte.dev/")
+    +footer_item("Pug", "https://pugjs.org/api/getting-started.html")
+    +footer_item("Sass", "https://sass-lang.com/")
+    +footer_item("Node.js", "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs")
+    +footer_item("Express", "https://expressjs.com/")
+    +footer_item("Socket.IO", "https://socket.io/")

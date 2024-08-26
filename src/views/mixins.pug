@@ -1,0 +1,32 @@
+mixin link_to(pigment_component_instance)
+  - if(pigment_component_instance.identifier)
+    div(data-href=(`/${pluralize(pigment_component_instance.baseClass.name.toLowerCase(), 2)}/${pigment_component_instance.identifier}`))
+      block
+
+mixin stylesheet(href)
+  link(rel='stylesheet' href=href)
+
+mixin context(newContext)
+  - old_context = context
+  -  context = newContext
+  block
+  - context = old_context
+
+mixin render(ui_or_pigment_component)
+  - if(ui_or_pigment_component?.render_with_context_and_locals)
+    |!{ui_or_pigment_component.render_with_context_and_locals(context, locals)}
+  - else
+    p Could not render component
+
+mixin modal(context, data = {})
+  .modal-config(
+    data-context=context
+    data-type=(data.type || 'popup')
+    data-title=data.title
+    data-text=data.text
+    data-confirm-text=data.confirmButtonText
+    data-cancel-text=data.cancelButtonText
+    data-icon=(data.icon || 'success')
+    data-cancel=!!(data.cancel || data.cancelButtonText)
+    data-timeout=data.timeout
+  )

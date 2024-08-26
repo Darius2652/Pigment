@@ -1,0 +1,16 @@
+extends PIGMENT
+
+block append styles
+  +stylesheet('/pigment/default.css')
+
+block body
+  include /default/header
+  include /default/footer
+
+  .container__wrapper
+    .container
+      .container__text Hello, World!
+      .spacer
+      img.logo(src='/images/pigment_logo.png')
+      .spacer
+      .container__text Your Pigment application is now live
